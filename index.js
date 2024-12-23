@@ -1,24 +1,3 @@
-// viewport size check
-console.log('Initial viewport check:', {
-  innerWidth: window.innerWidth,
-  screenWidth: window.screen.width,
-  mediaQuery: window.matchMedia('(min-width: 992px)').matches,
-  isDesktop:
-    window.matchMedia('(min-width: 992px)').matches &&
-    window.screen.width >= 992,
-});
-
-setTimeout(() => {
-  console.log('Viewport after 100ms:', {
-    innerWidth: window.innerWidth,
-    screenWidth: window.screen.width,
-    mediaQuery: window.matchMedia('(min-width: 992px)').matches,
-    isDesktop:
-      window.matchMedia('(min-width: 992px)').matches &&
-      window.screen.width >= 992,
-  });
-}, 100);
-
 gsap.registerPlugin(ScrollTrigger);
 
 // PAGE IS LOADED
