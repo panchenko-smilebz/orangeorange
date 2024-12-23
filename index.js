@@ -26,6 +26,35 @@ window.addEventListener('load', function (event) {
   init();
 });
 
+// QUESTION SECTION
+const texts = [
+  'generate any leads?',
+  'stand out against competitors?',
+  'exist?',
+];
+let currentIndex = 0;
+
+function rotateText() {
+  const elements = document.querySelectorAll('.question_dynamic-text');
+  // Оновлюємо текстовий контент
+  elements[0].textContent = texts[currentIndex];
+  elements[1].textContent = texts[(currentIndex + 1) % texts.length];
+  elements[2].textContent = texts[(currentIndex + 2) % texts.length];
+  // Змінюємо класи для анімації
+  elements[0].className = 'question_dynamic-text prev';
+  elements[1].className = 'question_dynamic-text active';
+  elements[2].className = 'question_dynamic-text next';
+  // Перевпорядковуємо елементи в DOM
+  setTimeout(() => {
+    const container = document.querySelector('.question_dynamic-wrapper');
+    container.appendChild(elements[0]);
+    // Оновлюємо індекс
+    currentIndex = (currentIndex + 1) % texts.length;
+  }, 800); // Час має співпадати з transition у CSS
+}
+// Запускаємо карусель
+setInterval(rotateText, 3000);
+
 // SHOW ANIMATION ONLY ON DESKTOP
 function isDesktop() {
   return (
@@ -52,35 +81,6 @@ if (isDesktop()) {
     .from('.intro-heading_line-2-2', { y: '100%', duration: 1.2 }, 0.1)
     .from('.intro-heading_line-3', { y: '100%', duration: 1.2 }, 0.2)
     .from('.intro_gradient', { y: '50%', opacity: 0, duration: 1.6 }, 0.5);
-
-  // QUESTION SECTION
-  const texts = [
-    'generate any leads?',
-    'stand out against competitors?',
-    'exist?',
-  ];
-  let currentIndex = 0;
-
-  function rotateText() {
-    const elements = document.querySelectorAll('.question_dynamic-text');
-    // Оновлюємо текстовий контент
-    elements[0].textContent = texts[currentIndex];
-    elements[1].textContent = texts[(currentIndex + 1) % texts.length];
-    elements[2].textContent = texts[(currentIndex + 2) % texts.length];
-    // Змінюємо класи для анімації
-    elements[0].className = 'question_dynamic-text prev';
-    elements[1].className = 'question_dynamic-text active';
-    elements[2].className = 'question_dynamic-text next';
-    // Перевпорядковуємо елементи в DOM
-    setTimeout(() => {
-      const container = document.querySelector('.question_dynamic-wrapper');
-      container.appendChild(elements[0]);
-      // Оновлюємо індекс
-      currentIndex = (currentIndex + 1) % texts.length;
-    }, 800); // Час має співпадати з transition у CSS
-  }
-  // Запускаємо карусель
-  setInterval(rotateText, 3000);
 
   // SERVICES SECTION
   const servicesTitle = document.querySelector(
