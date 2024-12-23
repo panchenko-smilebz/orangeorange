@@ -28,7 +28,15 @@ window.addEventListener('load', function (event) {
   init();
 });
 
-if (window.innerWidth > 991) {
+// SHOW ANIMATION ONLY ON DESKTOP
+function isDesktop() {
+  return (
+    window.matchMedia('(min-width: 992px)').matches &&
+    window.screen.width >= 992
+  );
+}
+
+if (isDesktop()) {
   // CASE HERO SECTION
   gsap.to('.case-hero_image-wrapper', {
     scrollTrigger: {
