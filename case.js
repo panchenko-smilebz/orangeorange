@@ -268,6 +268,7 @@ if (isDesktop()) {
       duration: 0.6,
     });
 
+}
   //FOOTER
   const footer = document.querySelector('footer');
   const footerFirstTitleLine = footer.querySelector('.cta_title--first');
@@ -312,4 +313,3 @@ if (isDesktop()) {
     .from('.footer_wrapper', { y: '0.75rem', opacity: 0, duration: 0.8 }, 2.4)
     .from('.footer_gradient', { x: '-60%', opacity: 0, duration: 1.3 }, 2.6)
     .from('.footer_logo', { y: '5rem', opacity: 0, duration: 1.6 }, 2.8);
-}
