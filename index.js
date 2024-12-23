@@ -96,27 +96,23 @@ const footerTl = gsap.timeline({
 
 footerTl
   .from(footer, { ease: 'linear', autoAlpha: 0 })
-  .from(footerFirstTitleLine, { y: '3rem', opacity: 0, duration: 1.2 })
-  .from(footerSecondTitleLine, { y: '3rem', opacity: 0, duration: 1.2 }, 0.4)
+  .from(footerFirstTitleLine, { y: '3rem', opacity: 0, duration: 1 })
+  .from(footerSecondTitleLine, { y: '3rem', opacity: 0, duration: 1 }, 0.3)
   .from(
     footerCircles,
     {
       x: '-50%',
       opacity: 0,
       stagger: { each: 0.2 },
-      duration: 2.2,
+      duration: 1.8,
     },
     0,
   )
-  .from('.prefooter_form-block', { y: '4rem', opacity: 0, duration: 1 }, 2)
-  .from(
-    '.prefooter_links-wrapper',
-    { y: '1.5rem', opacity: 0, duration: 1 },
-    2.6,
-  )
-  .from('.footer_wrapper', { y: '0.75rem', opacity: 0, duration: 1 }, 3.06)
-  .from('.footer_gradient', { x: '-60%', opacity: 0, duration: 1.6 }, 3.25)
-  .from('.footer_logo', { y: '5rem', opacity: 0, duration: 1.6 }, 3.75);
+  .from('.prefooter_form-block', { y: '4rem', opacity: 0, duration: 0.8 }, 1.6)
+  .from('.prefooter_links-wrapper', { y: '1.5rem', opacity: 0, duration: 1 }, 2)
+  .from('.footer_wrapper', { y: '0.75rem', opacity: 0, duration: 0.8 }, 2.4)
+  .from('.footer_gradient', { x: '-60%', opacity: 0, duration: 1.3 }, 2.6)
+  .from('.footer_logo', { y: '5rem', opacity: 0, duration: 1.6 }, 2.8);
 
 // PAGE IS LOADED
 let pageLoadTl = gsap.timeline({
@@ -126,17 +122,17 @@ let pageLoadTl = gsap.timeline({
 function init() {
   pageLoadTl
     .from('.section_hero', { ease: 'linear', autoAlpha: 0 })
-    .from('.hero_gradient', { scale: 0.5, duration: 2 })
-    .from('.hero_heading_line1', { y: '60%', duration: 1.5 }, 0)
-    .from('.hero_headling_line2-1', { y: '60%', duration: 1.5 }, 0.2)
-    .from('.hero_headling_line2-2', { y: '60%', duration: 1.5 }, 0.2)
-    .from('.hero_headling_line3', { y: '60%', duration: 1 }, 0.4)
-    .from('.header', { ease: 'linear', duration: 1, autoAlpha: 0 }, 1.7)
-    .from('.hero_heading_description', { ease: 'linear', duration: 1 }, 1.7)
+    .from('.hero_gradient', { scale: 0.5, duration: 1.6 })
+    .from('.hero_heading_line1', { y: '60%', duration: 1.2 }, 0)
+    .from('.hero_headling_line2-1', { y: '60%', duration: 1.2 }, 0.2)
+    .from('.hero_headling_line2-2', { y: '60%', duration: 1.2 }, 0.2)
+    .from('.hero_headling_line3', { y: '60%', duration: 0.8 }, 0.4)
+    .from('.header', { ease: 'linear', duration: 1, autoAlpha: 0 }, 1.35)
+    .from('.hero_heading_description', { ease: 'linear', duration: 0.8 }, 1.35)
     .from(
       '.circle-wrapper.hero-circle',
-      { x: 2000, stagger: { each: 0.2 }, duration: 2 },
-      1.7,
+      { x: 2000, stagger: { each: 0.2 }, duration: 1.6 },
+      1.35,
     );
 }
 
@@ -154,13 +150,13 @@ const introTl = gsap.timeline({
   },
 });
 introTl
-  .from('.intro-heading_line-1-1', { y: '200%', duration: 1.5 })
-  .from('.intro-heading_line-1-2', { y: '100%', duration: 1.5 }, 0)
-  .from('.intro-heading_line-1-3', { y: '100%', duration: 1.5 }, 0)
-  .from('.intro-heading_line-2-1', { y: '100%', duration: 1.5 }, 0.1)
-  .from('.intro-heading_line-2-2', { y: '100%', duration: 1.5 }, 0.1)
-  .from('.intro-heading_line-3', { y: '100%', duration: 1.5 }, 0.2)
-  .from('.intro_gradient', { y: '50%', opacity: 0, duration: 2 }, 0.6);
+  .from('.intro-heading_line-1-1', { y: '200%', duration: 1.2 })
+  .from('.intro-heading_line-1-2', { y: '100%', duration: 1.2 }, 0)
+  .from('.intro-heading_line-1-3', { y: '100%', duration: 1.2 }, 0)
+  .from('.intro-heading_line-2-1', { y: '100%', duration: 1.2 }, 0.1)
+  .from('.intro-heading_line-2-2', { y: '100%', duration: 1.2 }, 0.1)
+  .from('.intro-heading_line-3', { y: '100%', duration: 1.2 }, 0.2)
+  .from('.intro_gradient', { y: '50%', opacity: 0, duration: 1.6 }, 0.5);
 
 // QUESTION SECTION
 const texts = [
@@ -207,17 +203,17 @@ const secvicesTl = gsap.timeline({
   ease: 'power3.inOut',
 });
 secvicesTl
-  .from(servicesTitle, { y: '100%', duration: 1.2 })
-  .from('.services_gradient', { x: '0%', opacity: 0, duration: 1 }, 0.5)
-  .from('.services_desc', { y: '48%', opacity: 0, duration: 1 }, 0.8)
+  .from(servicesTitle, { y: '100%', duration: 1 })
+  .from('.services_gradient', { x: '0%', opacity: 0, duration: 0.8 }, 0.4)
+  .from('.services_desc', { y: '48%', opacity: 0, duration: 0.8 }, 0.6)
   .from(
     '.services_list_item',
-    { y: '48%', opacity: 0, stagger: { each: 0.2 }, duration: 1 },
-    1.1,
+    { y: '48%', opacity: 0, stagger: { each: 0.2 }, duration: 0.8 },
+    0.8,
   )
   .from(
     secvicesCircles,
-    { x: '-48%', opacity: 0, stagger: { each: 0.2 }, duration: 1 },
+    { x: '-48%', opacity: 0, stagger: { each: 0.2 }, duration: 0.8 },
     '>-=25%',
   );
 
@@ -521,17 +517,17 @@ const testimonialsTl = gsap.timeline({
 testimonialsTl
   .from(testimonialsSection.querySelector('.section-title'), {
     y: '100%',
-    duration: 1.2,
+    duration: 1,
   })
   .from('.testimonials_slider-wrapper.swiper-wrapper', {
     opacity: 0,
-    duration: 2,
+    duration: 1.6,
   })
   .from(
     '.testimonials_slider-slide.swiper-slide.swiper-slide-active',
     {
       y: activeSlideMove,
-      duration: 2,
+      duration: 1.6,
     },
     '<',
   )
@@ -540,7 +536,7 @@ testimonialsTl
     {
       y: '120%',
       opacity: 0,
-      duration: 2,
+      duration: 1.6,
     },
     '<',
   )
@@ -548,23 +544,23 @@ testimonialsTl
     '.testimonials_nav',
     {
       y: '-100%',
-      duration: 1,
+      duration: 0.8,
     },
-    2.2,
+    1.8,
   )
   .from(
     '.testimonials_slider-slide.swiper-slide.swiper-slide-next',
     {
       x: '40%',
-      duration: 1,
+      duration: 0.8,
     },
-    2.35,
+    1.9,
   )
   .from(
     '.testimonials_circle',
     {
       opacity: 0,
-      duration: 0.8,
+      duration: 0.6,
     },
-    3.1,
+    2.5,
   );

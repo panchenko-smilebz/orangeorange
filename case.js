@@ -10,16 +10,16 @@ let pageLoadTl = gsap.timeline({
 function init() {
   pageLoadTl
     .to('.section_case-hero', { ease: 'linear', autoAlpha: 1 })
-    .from('.case-hero_image-wrapper', { scale: 0.9, duration: 2 })
-    .from('.case-hero_heading', { y: '100%', duration: 1.5 }, 0)
-    .from('.case-hero_tags', { ease: 'linear', duration: 1 }, 1.7)
+    .from('.case-hero_image-wrapper', { scale: 0.9, duration: 1.6 })
+    .from('.case-hero_heading', { y: '100%', duration: 1.2 }, 0)
+    .from('.case-hero_tags', { ease: 'linear', duration: 0.8 }, 1.4)
     .from(
       document.querySelector('.section_case-hero .button.is-text'),
       {
         ease: 'linear',
-        duration: 1,
+        duration: 0.8,
       },
-      1.7,
+      1.4,
     )
     .from('.header', { ease: 'linear', duration: 1, autoAlpha: 0 });
 }
@@ -53,7 +53,7 @@ document.querySelectorAll('.section_requests').forEach((section) => {
   requestsTl
     .from(section.querySelector('.requests_section-heading'), {
       y: '100%',
-      duration: 1.2,
+      duration: 1,
     })
     .from(
       section.querySelector('.requests_gradient'),
@@ -61,27 +61,27 @@ document.querySelectorAll('.section_requests').forEach((section) => {
         x: '100%',
         y: '100%',
         opacity: 0,
-        duration: 1,
+        duration: 0.8,
       },
-      0.5,
+      0.4,
     )
     .from(
       section.querySelector('.requests_desc-heading'),
       {
         y: '3rem',
         opacity: 0,
-        duration: 1.2,
+        duration: 1,
       },
-      0.5,
+      0.4,
     )
     .from(
       section.querySelector('.requests_desc'),
       {
         y: '2rem',
         opacity: 0,
-        duration: 1,
+        duration: 0.8,
       },
-      1,
+      0.8,
     );
 });
 
@@ -102,12 +102,12 @@ const caseTimelineTl = gsap.timeline({
 caseTimelineTl
   .from(projectTimelineSection.querySelector('.cases_section-heading'), {
     y: '100%',
-    duration: 1.2,
+    duration: 1,
   })
   .from('.project-timeline_image-wrapper', {
     y: '3rem',
     opacity: 0,
-    duration: 1,
+    duration: 0.8,
   });
 
 // PROCESS SECTION
@@ -124,7 +124,7 @@ document.querySelectorAll('.section_process').forEach((section) => {
   requestsTl
     .from(section.querySelector('.cases_section-heading'), {
       y: '100%',
-      duration: 1.2,
+      duration: 1,
     })
     .from(
       section.querySelector('.process_gradient'),
@@ -132,18 +132,18 @@ document.querySelectorAll('.section_process').forEach((section) => {
         x: '100%',
         y: '100%',
         opacity: 0,
-        duration: 1,
+        duration: 0.8,
       },
-      0.5,
+      0.4,
     )
     .from(
       section.querySelector('.process_stage-heading'),
       {
         y: '3rem',
         opacity: 0,
-        duration: 1.2,
+        duration: 1,
       },
-      0.5,
+      0.4,
     )
     .from(
       section.querySelectorAll('.process-item'),
@@ -151,14 +151,14 @@ document.querySelectorAll('.section_process').forEach((section) => {
         y: '2rem',
         opacity: 0,
         stagger: 0.2,
-        duration: 1,
+        duration: 0.8,
       },
-      1,
+      0.8,
     )
     .from(section.querySelector('.process_image-wrapper'), {
       y: '3rem',
       opacity: 0,
-      duration: 1,
+      duration: 0.8,
     });
 });
 
@@ -177,16 +177,16 @@ const caseResultsTl = gsap.timeline({
 caseResultsTl
   .from(projectResultsSection.querySelector('.cases_section-heading'), {
     y: '100%',
-    duration: 1.2,
+    duration: 1,
   })
   .from(
     '.results_desc',
     {
       y: '2rem',
       opacity: 0,
-      duration: 1,
+      duration: 0.8,
     },
-    0.4,
+    0.3,
   )
   .from(
     '.metric-item.is-case',
@@ -194,13 +194,13 @@ caseResultsTl
       y: '2rem',
       opacity: 0,
       stagger: 0.2,
-      duration: 1,
+      duration: 0.8,
     },
-    0.6,
+    0.5,
   )
   .from('.results_image', {
     opacity: 0,
-    duration: 2,
+    duration: 1.6,
   });
 
 const imageResultsTl = gsap.timeline({
@@ -238,25 +238,25 @@ const testimonialTl = gsap.timeline({
 testimonialTl
   .from(testimonialSection.querySelector('.section-title'), {
     y: '100%',
-    duration: 1.2,
+    duration: 1,
   })
   .from('.testimonials_slide-wrapper.is-case', {
     y: activeSlideMove,
     opacity: 0,
-    duration: 2,
+    duration: 1.6,
   })
   .from(
     testimonialSection.querySelector('.testimonials_gradient'),
     {
       y: '80%',
       opacity: 0,
-      duration: 2,
+      duration: 1.6,
     },
     '<',
   )
   .from('.testimonials_circle', {
     opacity: 0,
-    duration: 0.8,
+    duration: 0.6,
   });
 
 //FOOTER
@@ -278,24 +278,20 @@ const footerTl = gsap.timeline({
 
 footerTl
   .from(footer, { ease: 'linear', autoAlpha: 0 })
-  .from(footerFirstTitleLine, { y: '3rem', opacity: 0, duration: 1.2 })
-  .from(footerSecondTitleLine, { y: '3rem', opacity: 0, duration: 1.2 }, 0.4)
+  .from(footerFirstTitleLine, { y: '3rem', opacity: 0, duration: 1 })
+  .from(footerSecondTitleLine, { y: '3rem', opacity: 0, duration: 1 }, 0.3)
   .from(
     footerCircles,
     {
       x: '-50%',
       opacity: 0,
       stagger: { each: 0.2 },
-      duration: 2.2,
+      duration: 1.8,
     },
     0,
   )
-  .from('.prefooter_form-block', { y: '4rem', opacity: 0, duration: 1 }, 2)
-  .from(
-    '.prefooter_links-wrapper',
-    { y: '1.5rem', opacity: 0, duration: 1 },
-    2.6,
-  )
-  .from('.footer_wrapper', { y: '0.75rem', opacity: 0, duration: 1 }, 3.06)
-  .from('.footer_gradient', { x: '-60%', opacity: 0, duration: 1.6 }, 3.25)
-  .from('.footer_logo', { y: '5rem', opacity: 0, duration: 1.6 }, 3.75);
+  .from('.prefooter_form-block', { y: '4rem', opacity: 0, duration: 0.8 }, 1.6)
+  .from('.prefooter_links-wrapper', { y: '1.5rem', opacity: 0, duration: 1 }, 2)
+  .from('.footer_wrapper', { y: '0.75rem', opacity: 0, duration: 0.8 }, 2.4)
+  .from('.footer_gradient', { x: '-60%', opacity: 0, duration: 1.3 }, 2.6)
+  .from('.footer_logo', { y: '5rem', opacity: 0, duration: 1.6 }, 2.8);
