@@ -20,7 +20,7 @@ function init() {
       { x: 2000, stagger: { each: 0.2 }, duration: 1.6 },
       1.35,
     )
-    .from('.layout352_progress-bar', { autoAlpha: 0 };
+    .from('.layout352_progress-bar', { autoAlpha: 0 });
 }
 
 window.addEventListener('load', function (event) {
