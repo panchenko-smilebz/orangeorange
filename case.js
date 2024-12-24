@@ -28,16 +28,7 @@ window.addEventListener('load', function (event) {
   init();
 });
 
-// SHOW ANIMATION ONLY ON DESKTOP
-function isDesktop() {
-  return (
-    window.matchMedia('(min-width: 992px)').matches &&
-    window.screen.width >= 992
-  );
-}
-
-if (isDesktop()) {
-  // CASE HERO SECTION
+// CASE HERO SECTION
   gsap.to('.case-hero_image-wrapper', {
     scrollTrigger: {
       trigger: '.section_case-hero',
@@ -48,6 +39,15 @@ if (isDesktop()) {
     y: '4rem',
   });
 
+// SHOW ANIMATION ONLY ON DESKTOP
+function isDesktop() {
+  return (
+    window.matchMedia('(min-width: 992px)').matches &&
+    window.screen.width >= 992
+  );
+}
+
+if (isDesktop()) {
   // REQUESTS SECTION
   document.querySelectorAll('.section_requests').forEach((section) => {
     const requestsTl = gsap.timeline({
@@ -268,7 +268,6 @@ if (isDesktop()) {
       duration: 0.6,
     });
 
-}
   //FOOTER
   const footer = document.querySelector('footer');
   const footerFirstTitleLine = footer.querySelector('.cta_title--first');
@@ -310,6 +309,7 @@ if (isDesktop()) {
       { y: '1.5rem', opacity: 0, duration: 1 },
       2,
     )
+}
     .from('.footer_wrapper', { y: '0.75rem', opacity: 0, duration: 0.8 }, 2.4)
     .from('.footer_gradient', { x: '-60%', opacity: 0, duration: 1.3 }, 2.6)
     .from('.footer_logo', { y: '5rem', opacity: 0, duration: 1.6 }, 2.8);
