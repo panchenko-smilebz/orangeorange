@@ -55,6 +55,22 @@ function rotateText() {
 // Запускаємо карусель
 setInterval(rotateText, 3000);
 
+// TIMELINE - MOBILE SCROLL ANIMATION
+let timelinePointTriggers = document.querySelectorAll('.timeline-path_text');
+
+timelinePointTriggers.forEach(trigger => {
+  gsap.from(trigger, {
+    scrollTrigger: {
+      trigger: trigger,
+      start: 'top 50%',
+      end: 'bottom 50%',
+      scrub: true,
+    },
+    opacity: 0.4,
+    duration: 0.3
+  })
+});
+
 // SHOW ANIMATION ONLY ON DESKTOP
 function isDesktop() {
   return (
