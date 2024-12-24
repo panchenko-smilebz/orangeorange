@@ -58,8 +58,8 @@ setInterval(rotateText, 3000);
 // SHOW ANIMATION ONLY ON DESKTOP
 function isDesktop() {
   return (
-    window.matchMedia('(min-width: 992px)').matches &&
-    window.screen.width >= 992
+    window.matchMedia('(min-width: 767px)').matches &&
+    window.screen.width >= 767
   );
 }
 
