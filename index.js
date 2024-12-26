@@ -56,6 +56,26 @@ function rotateText() {
 // Запускаємо карусель
 setInterval(rotateText, 3000);
 
+// CASES SECTION
+  const cases = document.querySelectorAll('.layout409_card');
+
+  cases.forEach((caseElement, index) => {
+    if (index === 0) return;
+
+    gsap.to(cases[index - 1], {
+      scrollTrigger: {
+        trigger: caseElement,
+        start: '25% bottom',
+        end: 'top top',
+        scrub: true,
+        markers: false,
+      },
+      scale: 0.8,
+      opacity: 0,
+      ease: 'none',
+    });
+  });
+
 // SHOW ANIMATION ONLY ON DESKTOP
 function isDesktop() {
   return (
@@ -112,26 +132,6 @@ if (isDesktop()) {
       { x: '-48%', opacity: 0, stagger: { each: 0.2 }, duration: 0.8 },
       '>-=25%',
     );
-
-  // CASES SECTION
-  const cases = document.querySelectorAll('.layout409_card');
-
-  cases.forEach((caseElement, index) => {
-    if (index === 0) return;
-
-    gsap.to(cases[index - 1], {
-      scrollTrigger: {
-        trigger: caseElement,
-        start: '25% bottom',
-        end: 'top top',
-        scrub: true,
-        markers: false,
-      },
-      scale: 0.8,
-      opacity: 0,
-      ease: 'none',
-    });
-  });
 
   // TIMELINE SECTION
   // Section Title
