@@ -361,42 +361,6 @@ if (isDesktop()) {
     });
   });
 
-  // Анімація по скролу
-  const ctaSections = document.querySelectorAll('.section_cta');
-
-  ctaSections.forEach((section) => {
-    const titleFirstLine = section.querySelector('.cta_title--first');
-    const titleSecondLine = section.querySelector('.cta_title--second');
-    const ctaCircles = section.querySelectorAll('.circle-wrapper.cta-circle');
-
-    // Анімація появи
-    const ctaTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: section,
-        start: 'top 30%',
-        end: 'top 80%',
-        markers: false,
-        once: true,
-      },
-      ease: 'power3.inOut',
-    });
-
-    ctaTl
-      .from(section, { ease: 'linear', autoAlpha: 0 })
-      .from(titleFirstLine, { y: '3rem', opacity: 0, duration: 1.2 })
-      .from(titleSecondLine, { y: '3rem', opacity: 0, duration: 1.2 }, 0.4)
-      .from(
-        ctaCircles,
-        {
-          x: '-50%',
-          opacity: 0,
-          stagger: { each: 0.2 },
-          duration: 2.2,
-        },
-        0,
-      );
-  });
-
   // CTA SECTIONS
   const ctaButtons = document.querySelectorAll('[button-type="circle"]');
 
@@ -472,6 +436,42 @@ if (isDesktop()) {
         },
       });
     });
+  });
+
+  // Анімація по скролу
+  const ctaSections = document.querySelectorAll('.section_cta');
+
+  ctaSections.forEach((section) => {
+    const titleFirstLine = section.querySelector('.cta_title--first');
+    const titleSecondLine = section.querySelector('.cta_title--second');
+    const ctaCircles = section.querySelectorAll('.circle-wrapper.cta-circle');
+
+    // Анімація появи
+    const ctaTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: 'top 30%',
+        end: 'top 80%',
+        markers: false,
+        once: true,
+      },
+      ease: 'power3.inOut',
+    });
+
+    ctaTl
+      .from(section, { ease: 'linear', autoAlpha: 0 })
+      .from(titleFirstLine, { y: '3rem', opacity: 0, duration: 1.2 })
+      .from(titleSecondLine, { y: '3rem', opacity: 0, duration: 1.2 }, 0.4)
+      .from(
+        ctaCircles,
+        {
+          x: '-50%',
+          opacity: 0,
+          stagger: { each: 0.2 },
+          duration: 2.2,
+        },
+        0,
+      );
   });
 
   // TESTIMONIALS SECTION
