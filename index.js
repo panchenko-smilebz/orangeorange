@@ -538,6 +538,28 @@ if (isDesktop()) {
       2.5,
     );
 
+  // SERVICES SECTION
+  const blogTitle = document.querySelector(
+    '.section_blog .section-title',
+  );
+
+  const blogTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: '.section_services',
+      start: 'top 15%',
+      end: 'top 80%',
+      markers: false,
+    },
+    ease: 'power3.inOut',
+  });
+  blogTl
+    .from(blogTitle, { y: '100%', duration: 1 })
+    .from(
+      '.article-item',
+      { y: '3rem', opacity: 0, stagger: { each: 0.2 }, duration: 0.8 },
+      0.8,
+    );
+
   //FOOTER
   const footer = document.querySelector('footer');
   const footerFirstTitleLine = footer.querySelector('.cta_title--first');
