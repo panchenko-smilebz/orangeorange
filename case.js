@@ -268,6 +268,105 @@ if (isDesktop()) {
       duration: 0.6,
     });
 
+  // CTA SECTIONS
+  const ctaButtons = document.querySelectorAll('[button-type="circle"]');
+
+  const buttonConfigs = {
+    'is-btn-1': {
+      positions: {
+        x: ['40%', '80%', '-100%'],
+        y: ['60%', '-60%', '10%'],
+      },
+    },
+    'is-btn-2': {
+      positions: {
+        x: ['0%', '30%', '40%'],
+        y: ['0%', '20%', '-70%'],
+      },
+    },
+  };
+
+  function createRandomAnimation(shineCircle, config) {
+    return gsap.to(shineCircle, {
+      duration: 8,
+      scale: gsap.utils.wrap([0.9, 1, 1.1]),
+      x: gsap.utils.wrap(config.positions.x),
+      y: gsap.utils.wrap(config.positions.y),
+      ease: 'power1.inOut',
+      repeat: -1,
+      repeatRefresh: true,
+      onRepeat: function () {
+        gsap.to(this.targets()[0], {
+          duration: 8,
+          scale: gsap.utils.random(0.9, 1.1),
+          x: gsap.utils.random(config.positions.x),
+          y: gsap.utils.random(config.positions.y),
+          ease: 'power1.inOut',
+        });
+      },
+    });
+  }
+
+  ctaButtons.forEach((button) => {
+    const shineCircle = button.querySelector('.cta-circle_shine');
+    const buttonClass = Array.from(shineCircle.classList).find((className) =>
+      className.startsWith('is-btn-'),
+    );
+    const config = buttonConfigs[buttonClass];
+
+    let randomAnimation = createRandomAnimation(shineCircle, config);
+
+    button.addEventListener('mouseover', () => {
+      // Повністю зупиняємо всі анімації на елементі
+      gsap.killTweensOf(shineCircle);
+
+      // Запускаємо тільки анімацію збільшення
+      gsap.to(shineCircle, {
+        scale: 3,
+        duration: 0.5,
+        ease: 'power2.out',
+      });
+    });
+
+    button.addEventListener('mouseout', () => {
+      // Зупиняємо всі поточні анімації
+      gsap.killTweensOf(shineCircle);
+
+      // Зменшуємо розмір
+      gsap.to(shineCircle, {
+        scale: 1,
+        duration: 0.5,
+        ease: 'power2.in',
+        onComplete: () => {
+          // Створюємо нову рандомну анімацію
+          randomAnimation = createRandomAnimation(shineCircle, config);
+        },
+      });
+    });
+  });
+
+  // BLOG SECTION
+  const blogTitle = document.querySelector(
+    '.section_blog .section-title',
+  );
+
+  const blogTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: '.section_blog',
+      start: 'top 15%',
+      end: 'top 80%',
+      markers: false,
+    },
+    ease: 'power3.inOut',
+  });
+  blogTl
+    .from(blogTitle, { y: '100%', duration: 1 })
+    .from(
+      '.article-item',
+      { y: '3rem', opacity: 0, stagger: { each: 0.2 }, duration: 0.8 },
+      0.8,
+    );
+
   //FOOTER
   const footer = document.querySelector('footer');
   const footerFirstTitleLine = footer.querySelector('.cta_title--first');
