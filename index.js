@@ -538,14 +538,14 @@ if (isDesktop()) {
       2.5,
     );
 
-  // SERVICES SECTION
+  // BLOG SECTION
   const blogTitle = document.querySelector(
     '.section_blog .section-title',
   );
 
   const blogTl = gsap.timeline({
     scrollTrigger: {
-      trigger: '.section_services',
+      trigger: '.section_blog',
       start: 'top 15%',
       end: 'top 80%',
       markers: false,
